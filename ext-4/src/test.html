@@ -1,0 +1,58 @@
+<html>
+
+<body>
+
+<script type="text/javascript">
+    Ext.onReady(function(){
+        var toolbar = new Ext.toolbar.Toolbar({
+            renderTo:'toolbar',
+            width:300
+        });
+
+        var childrenMenu = new Ext.menu.Menu({
+            ignoreParentClicks:true,
+            items:[
+                {text:'open one'},
+                {text:'open two'}
+            ]
+        });
+
+        var fileMenu = new Ext.menu.Menu({
+            shadow:'frame',
+            allowOtherMenus:true,
+            items:[
+                new Ext.menu.Item({
+                    text:'new'
+                }),
+                {text:'open',menu:childrenMenu},
+                {text:'close'}
+            ]
+        });
+
+
+        toolbar.add(
+            {
+                text:'新建',
+                menu:fileMenu
+            },
+            {
+                text:'打开'
+            },
+            {
+                text:'保存'
+            },
+            '->',
+            '<a href="#">link</a>',
+            'text'
+        );
+
+    });
+</script>
+</HEAD>
+<BODY>
+<div id='toolbar'></div>
+</BODY>
+
+</body>
+
+</html>
